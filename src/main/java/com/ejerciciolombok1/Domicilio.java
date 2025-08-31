@@ -2,6 +2,7 @@ package com.ejerciciolombok1;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Data
 public class Domicilio {
     @Getter
     @NonNull
