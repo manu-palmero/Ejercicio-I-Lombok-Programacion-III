@@ -1,29 +1,27 @@
 package com.ejerciciolombok1;
 
-// Clase Domicilio (versión corregida)
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+// Clase Domicilio
+@ToString(exclude = "residente")
+@Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Domicilio {
+    @Getter
+    @NonNull
     private String calle;
-    private int numero;
+    @Getter
+    private final int numero;
     // No necesitamos una referencia a Persona para el propósito del toString()
     // Aunque la tuviéramos para otra lógica, no la usaríamos en este método
+    @Getter
+    @Setter
     private Persona residente;
-
-    public Domicilio(String calle, int numero) {
-        this.calle = calle;
-        this.numero = numero;
-    }
-
-    // Asignar el residente después de la creación
-    public void setResidente(Persona residente) {
-        this.residente = residente;
-    }
-
-    // Método toString() corregido: no llama a Persona.toString()
-    @Override
-    public String toString() {
-        return "Domicilio{" +
-                "calle='" + calle + '\'' +
-                ", numero=" + numero +
-                '}';
-    }
 }

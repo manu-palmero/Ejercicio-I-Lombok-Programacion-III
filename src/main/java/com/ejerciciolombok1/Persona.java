@@ -1,29 +1,31 @@
 package com.ejerciciolombok1;
 
-// Clase Persona (versión corregida)
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+// Clase Persona
+@Builder
+@ToString
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Persona {
+    @Getter
+    @NonNull
     private String nombre;
-    private int edad;
+    @Getter
+    private final int edad;
+    @Getter
     private Domicilio domicilio;
 
-    public Persona(String nombre, int edad, Domicilio domicilio) {
-        this.nombre = nombre;
-        this.edad = edad;
+    // Método personalizado para establecer la referencia en Domicilio
+    public void setDomicilio(Domicilio domicilio) {
         this.domicilio = domicilio;
-
-        // Establecer la referencia en Domicilio
         if (domicilio != null) {
             domicilio.setResidente(this);
         }
-    }
-
-    // Método toString() corregido: llama a Domicilio.toString()
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", domicilio=" + (domicilio != null ? domicilio.toString() : "sin domicilio") +
-                '}';
     }
 }
