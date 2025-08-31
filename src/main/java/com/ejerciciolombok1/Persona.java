@@ -1,3 +1,5 @@
+package com.ejerciciolombok1;
+
 // Clase Persona (versión corregida)
 public class Persona {
     private String nombre;

@@ -1,3 +1,5 @@
+package com.ejerciciolombok1;
+
 // Clase Domicilio (versión corregida)
 public class Domicilio {
     private String calle;
